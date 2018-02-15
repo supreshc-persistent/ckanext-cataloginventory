@@ -32,7 +32,7 @@ git clone https://github.com/supreshc-persistent/ckanext-cataloginventory.git
 
 3. Install the extension into your virtual environment:
 ```
-cd ckanext-datasetofdatasets
+cd ckanext-cataloginventory
 python setup.py develop
 ```
 

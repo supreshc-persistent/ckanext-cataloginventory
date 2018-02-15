@@ -21,7 +21,7 @@ class CataloginventoryPlugin(plugins.SingletonPlugin):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('fanstatic', 'datasetofdatasets')
+        toolkit.add_resource('fanstatic', 'cataloginventory')
 
     def after_create(self, context, pkg_dict):
         if pkg_dict.get('private') is False:
@@ -56,7 +56,7 @@ def addupdate_datasetlist(pkg_dict):
         #upsert dataset metadata in resource
         resource_exits = False
         for resource in resources:
-            if resource.get('title') == 'Datasets List':
+            if resource.get('name') == 'Datasets List':
                 resource_exits = True
                 res_id = resource.get('id')
                 records = []
@@ -173,3 +173,4 @@ def get_packages_data():
             response.append(package_data)
 
     return response
+
