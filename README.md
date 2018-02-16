@@ -8,10 +8,6 @@ extension to list the metadata of datasets in a resource of a dataset named 'dat
 
 This plugin uses CKAN [background jobs](http://docs.ckan.org/en/latest/maintaining/background-tasks.html) that was introduced in CKAN 2.7
 
-**Requires [ckanext-scheming](https://github.com/ckan/ckanext-scheming)**
-
-Use the included dataset\_schema.json file for the schema. The resource\_fields section provides the fields necessary for this extension.
-
 This plugin need an existing dataset with name 'dataset-of-datasets'
 
 

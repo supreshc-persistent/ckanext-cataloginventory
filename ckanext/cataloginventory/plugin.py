@@ -1,7 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import ckanapi
-from ckanext.scheming import helpers
 try:
     # CKAN 2.7 and later
     from ckan.common import config
@@ -135,7 +134,21 @@ def get_dataset_fields():
         lc = ckanapi.LocalCKAN()
         schema_dataset_fields = lc.action.scheming_dataset_schema_show(type='dataset')['dataset_fields']
     except:
-        schema_dataset_fields = helpers.scheming_get_dataset_schema("dataset")['dataset_fields']
+        schema_dataset_fields = [
+            {"field_name": "title","label": "Title"},
+            {"field_name": "name","label": "URL"},
+            {"field_name": "notes","label": "Description"},
+            {"field_name": "tag_string","label": "Tags"},
+            {"field_name": "license_id","label": "License"},
+            {"field_name": "owner_org","label": "Organization"},
+            {"field_name": "group", "label": "Groups"},
+            {"field_name": "url","label": "Source"},
+            {"field_name": "version","label": "Version"},
+            {"field_name": "author","label": "Author"},
+            {"field_name": "author_email","label": "Author Email"},
+            {"field_name": "maintainer","label": "Maintainer"},
+            {"field_name": "maintainer_email","label": "Maintainer Email"}
+            ]
     dataset_fields = {}
     for schema_dataset_field in schema_dataset_fields:
         dataset_fields[schema_dataset_field['field_name']] = schema_dataset_field['label']
