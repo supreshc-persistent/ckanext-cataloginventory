@@ -63,7 +63,7 @@ def addupdate_datasetlist(pkg_dict):
                 for key in dataset_fields:
                     if key in pkg_dict or key == 'tag_string':
                         if key == 'tag_string':
-                            record_data[dataset_fields[key]] = get_package_tags(pkg_dict.get('tags'))
+                            record_data[dataset_fields[key]] = get_package_tags(pkg_dict.get('tags',[]))
                         elif key == 'owner_org':
                             if pkg_dict['owner_org'] is not None:
                                 record_data[dataset_fields[key]] = get_organization_data(pkg_dict['owner_org'])['title']
@@ -91,7 +91,7 @@ def add_dataset_resource(list_pkg_dict):
         for key in dataset_fields:
             if key in site_package or key == 'tag_string':
                 if key == 'tag_string':
-                    record_data[dataset_fields[key]] = get_package_tags(site_package.get('tags'))
+                    record_data[dataset_fields[key]] = get_package_tags(site_package.get('tags',[]))
                 elif key == 'owner_org':
                     if site_package['owner_org'] is not None:
                         record_data[dataset_fields[key]] = site_package['organization']['title']
